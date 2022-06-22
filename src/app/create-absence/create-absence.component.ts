@@ -26,7 +26,7 @@ export class CreateAbsenceComponent implements OnInit {
   ngOnInit(): void {
     this.createAbsForm = this.formBuilder.group({
       typeAbs: ['',Validators.required],
-      Nom:['',Validators.required],
+      id:['',Validators.required],
       datePremierJ: ['',Validators.required],
       dateDernierJ: ['',Validators.required],
       dateRetour:['',Validators.required],
@@ -40,7 +40,7 @@ export class CreateAbsenceComponent implements OnInit {
     if(this.editData){
       this.actionBtn="Enregistrer";
       this.createAbsForm.controls['typeAbs'].setValue(this.editData.typeAbs);
-      this.createAbsForm.controls['Nom'].setValue(this.editData.Nom);
+      this.createAbsForm.controls['id'].setValue(this.editData.id);
       this.createAbsForm.controls['datePremierJ'].setValue(this.editData.datePremierJ);
       this.createAbsForm.controls['dateDernierJ'].setValue(this.editData.dateDernierJ);
       this.createAbsForm.controls['MatinorAprèsMidiPJ'].setValue(this.editData.MatinorAprèsMidiPJ);
@@ -90,7 +90,8 @@ calculerNbJrs(): void {
     if(!this.editData){
       if(this.createAbsForm.valid)
     {
-      this.api.postAbsence(this.createAbsForm.value)
+      let collab_id = this.createAbsForm.controls['id'].value;
+      this.api.postAbsence(collab_id, this.createAbsForm.value)
       .subscribe({
          next:(res) => {
           alert("Absence Créé avec succès!");

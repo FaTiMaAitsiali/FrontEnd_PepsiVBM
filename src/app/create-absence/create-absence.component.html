@@ -94,7 +94,7 @@
     <mat-form-field appearance="outline" style="width:100%;">
       <mat-label>Type d'absence</mat-label>
         <mat-select formControlName="typeAbs" placeholder="choisir un type">
-            <mat-option name="2" value="Sick Leave">Sick Leave</mat-option>
+            <mat-option name="2" value="Sick_Leave">Sick Leave</mat-option>
             <mat-option name="3" value="Maladie">Maladie</mat-option>
             <mat-option name="4" value="Conge_Annuel">Congé Annuel</mat-option>
             <mat-option name="5" value="Maternite">Maternité</mat-option>
@@ -119,8 +119,8 @@
         </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline"  style="width:30%">
-      <mat-label>Nom du collaborateur</mat-label>
-      <input formControlName="Nom" matInput>
+      <mat-label>ID </mat-label>
+      <input formControlName="id" matInput>
     </mat-form-field><br>
     <mat-form-field appearance="outline" style="width:50%;margin-right:10px;">
       <mat-label>Date de premier jour d'absence</mat-label>
@@ -131,8 +131,8 @@
     </mat-form-field>
     <mat-form-field appearance="outline"  style="width:30%">
       <mat-select formControlName="MatinorAprèsMidiPJ" placeholder="Matin ou Après-Midi" (selectionChange)="calculerNbJrs()">
-         <mat-option value="Matin">Matin</mat-option>
-         <mat-option value="Apres_Midi">Après-Midi</mat-option>
+         <mat-option value="M">Matin</mat-option>
+         <mat-option value="AM">Après-Midi</mat-option>
       </mat-select>
     </mat-form-field>
     <br>
@@ -145,8 +145,8 @@
     </mat-form-field>
     <mat-form-field appearance="outline"  style="width:30%">
       <mat-select formControlName="MatinorAprèsMidiDJ" placeholder="Matin ou Après-Midi" (selectionChange)="calculerNbJrs()">
-         <mat-option value="Matin">Matin</mat-option>
-         <mat-option value="Apres_Midi">Après-Midi</mat-option>
+         <mat-option value="M">Matin</mat-option>
+         <mat-option value="AM">Après-Midi</mat-option>
       </mat-select>
     </mat-form-field><br>
     <mat-form-field appearance="outline" style="width:50%;margin-right:10px;">

@@ -8,27 +8,27 @@
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
       <!-- Nomb Column -->
-      <ng-container matColumnDef="Nom">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom du collaborateur </th>
-        <td mat-cell *matCellDef="let row"> {{row.Nom}} </td>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID du collaborateur </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
       </ng-container>
 
       <!-- TypeAbsence Column -->
       <ng-container matColumnDef="typeAbs">
         <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:100px;"> Type d'absence </th>
-        <td mat-cell *matCellDef="let row">{{row.raison}}</td>
+        <td mat-cell *matCellDef="let row">{{row.typeAbs}}</td>
       </ng-container>
   
       <!-- DatePremierJ Column -->
       <ng-container matColumnDef="datePremierJ">
         <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:150px;"> Date de premier jour d'absence</th>
-        <td mat-cell *matCellDef="let row"> {{row.datedebut | date}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.datePremierJ | date}} </td>
       </ng-container>
   
       <!-- DateDernierJ Column -->
       <ng-container matColumnDef="dateDernierJ">
         <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:150px;"> Date de dernier jour d'absence</th>
-        <td mat-cell *matCellDef="let row"> {{row.datefin | date}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.dateDernierJ | date}} </td>
       </ng-container>
   
       <!-- DateRetour Column -->
@@ -39,7 +39,7 @@
    <!-- NombreJ Column -->
       <ng-container matColumnDef="nombreJ">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre de jours </th>
-        <td mat-cell *matCellDef="let row"> {{row.nomberJours}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.nombreJ}} </td>
       </ng-container>
      <!-- DateRetour Column -->
      <ng-container matColumnDef="createdDate" >

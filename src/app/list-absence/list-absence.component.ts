@@ -12,7 +12,7 @@ import { CreateAbsenceComponent } from '../create-absence/create-absence.compone
   styleUrls: ['./list-absence.component.scss']
 })
 export class ListAbsenceComponent implements OnInit {
-  displayedColumns: string[] = ['Nom','typeAbs','datePremierJ', 'dateDernierJ', 'dateRetour', 'nombreJ','createdDate','commentaire','file','Action'];
+  displayedColumns: string[] = ['id','typeAbs','datePremierJ', 'dateDernierJ', 'dateRetour', 'nombreJ','createdDate','commentaire','file','Action'];
   dataSource!: MatTableDataSource<any>;
   
   @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -24,9 +24,11 @@ export class ListAbsenceComponent implements OnInit {
   // }
 
   ngOnInit(): void {
+    this.dataSource= new MatTableDataSource();
     this.getAllAbsences();
    }
   getAllAbsences(){
+    this.dataSource.data = []
     this.api.getAbsence()
     .subscribe({
       next:(res) => {
@@ -51,11 +53,12 @@ export class ListAbsenceComponent implements OnInit {
     }
   })
     }
+
   deleteAbsence(id : number){
     this.api.deleteAbsence(id)
     .subscribe({
       next:(res) => {
-        alert("Absence Supprimée avec succès!");
+        //alert("Absence Supprimée avec succès!");
         this.getAllAbsences();
       },
       error:() =>{
