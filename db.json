@@ -1,0 +1,50 @@
+{
+  "AbsenceList": [
+    {
+      "typeAbs": "Maladie",
+      "Nom": "Omar Omari",
+      "datePremierJ": "2022-05-31T23:00:00.000Z",
+      "dateDernierJ": "2022-06-07T23:00:00.000Z",
+      "dateRetour": "2022-06-08T23:00:00.000Z",
+      "nombreJ": "8 jours",
+      "commentaire": "",
+      "file": "C:\\fakepath\\image1.jpg",
+      "createdDate": "2022-06-21T19:21:39.572Z",
+      "id": 1
+    },
+    {
+      "typeAbs": "OMRA",
+      "Nom": "Ahmed Safoui",
+      "datePremierJ": "2022-05-31T23:00:00.000Z",
+      "dateDernierJ": "2022-06-24T23:00:00.000Z",
+      "dateRetour": "2022-06-25T23:00:00.000Z",
+      "nombreJ": "25 jours",
+      "commentaire": "",
+      "file": "",
+      "createdDate": "2022-06-21T19:30:09.282Z",
+      "id": 2
+    },
+    {
+      "typeAbs": "Mariage",
+      "Nom": "Sara Salam",
+      "datePremierJ": "2022-05-31T23:00:00.000Z",
+      "dateDernierJ": "2022-06-29T23:00:00.000Z",
+      "dateRetour": "2022-06-30T23:00:00.000Z",
+      "nombreJ": "30 jours",
+      "commentaire": "Son mariage",
+      "file": "",
+      "createdDate": "2022-06-21T19:33:23.173Z",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

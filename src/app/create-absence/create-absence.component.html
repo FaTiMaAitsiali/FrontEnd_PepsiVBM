@@ -1,0 +1,190 @@
+<!--
+<body style="margin-left:200px;margin-right:200px;"> 
+
+    
+      <div class="fst-italic" style="text-align:center;">
+      <h2 class="text-decoration-underline" style="font-family:Gorgia, 'Times New Roman', Times, serif;font-size:26px;">Créer une absence</h2>
+      </div>
+        <div >
+        <label for="typeAbsence" class="form-label">Type d'absence<span style="color:red;">*</span><img src="assets/question.svg" width="15px" height="15px"/></label>
+        <select class="form-select" formControlName="typeAbs" id="typeAbsence" aria-label="Default select example" style="width:600px;" >
+            <option name="1" value="1" selected></option>
+            <option name="2" value="Sick Leave">Sick Leave</option>
+            <option name="3" value="Maladie">Maladie</option>
+            <option name="4" value="Congé Annuel">Congé Annuel</option>
+            <option name="5" value="Maternité">Maternité</option>
+            <option name="6" value="Mariage">Mariage</option>
+            <option name="7" value="Décès">Décès</option>
+            <option name="8" value="Circoncision">Circoncision</option>
+            <option name="9" value="Naissance">Naissance</option>
+            <option name="10" value="Allaitement">Allaitement</option>
+            <option name="11" value="Formation">Formation</option>
+            <option name="12" value="Absence RP">Absence RP</option>
+            <option name="13" value="Accident de travail">Accident de travail</option>
+            <option name="14" value="Récupération Heures Supp">Récupération Heures Supp</option>
+            <option name="15" value="Autorisation de sortie">Autorisation de sortie</option>
+            <option name="16" value="Mission">Mission</option>
+            <option name="17" value="Mise à pied">Mise à pied</option>
+            <option name="18" value="OMRA">OMRA</option>
+            <option name="19" value="HAJ">HAJ</option>
+            <option name="20" value="Arrêt Production">Arrêt Production</option>
+            <option name="21" value="Absence Préavis">Absence Préavis</option>
+            <option name="22" value="Opération Chirurgicale">Opération Chirurgicale</option>
+            <option name="23" value="Retard Transport">Retard Transport</option>
+        </select>
+        </div>
+            <div class="row g-3" style="padding-top:1%;">
+                <div class="col-sm-7" style="width:300px;">
+                  <label for="dpj" style="padding-top:6%;">Date de premièr jour d'absence<span style="color:red;">*</span></label>
+                  <input type="date" class="form-control" formControlName="datePremierJ"  id="dpj" required>
+                </div>
+                <div class="col-sm" style="padding-top:45px;">
+                  <select style="height:30px;">
+                      <option value="1">Matin</option>
+                      <option value="2">Après-Midi</option>
+                  </select>
+              </div>
+              <div class="row g-3">
+                <div class="col-sm-7" style="width:300px">
+                  <label for="ddj">Date de dernièr jour d'absence<span style="color:red;">*</span></label>
+                  <input type="date" class="form-control" formControlName="dateDernierJ" id="ddj" required>
+                </div>
+                <div class="col-sm" style="padding-top:28px;">
+                  <select style="height:30px;">
+                      <option value="1">Matin</option>
+                      <option value="2">Après-Midi</option>
+                  </select>
+                </div>
+               </div>
+              <div class="col-sm-9" style="width:300px">
+                <label for="datretour">Retour au travail le </label>
+                <input type="date" class="form-control" formControlName="dateRetour"  id="dateretour">
+              </div>
+              <div style="width:250px;padding-top:4px;">
+                <label for="nombreJour">Demande</label>
+                <div class="col-sm" style="padding-top:3px;">
+                  <input type="text" style="height:30px;width:100px" formControlName="nombreJ"  id="nombreJour" onclick="return calculer()" >
+              </div>
+              </div>  
+              <label class="form-check-label" for="flexCheckDefault">Absence récurrente</label>
+              <div> 
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              </div>
+              <div class="form-floating" style="width:600px">
+                <textarea class="form-control" placeholder="Leave a comment here" formControlName="commentaire" id="floatingTextarea2" style="height:100px"></textarea>
+                <label for="floatingTextarea2">Commentaire</label>
+              </div>
+              <div>
+              <label>Documentation</label>
+              <div style="margin-right:200px;"><img src="assets/file.svg" width="100px" height="100px" style="margin-left:300px;" /></div>
+              <div style="margin-left:200px;width:400px;">
+              <label for="formFile" class="form-label"></label>
+              <input class="form-control"  type="file" id="formFile" formControlName="file" (change)="envoiFichier($event)"/>
+              </div>
+         </div>
+
+              <div class="modal-footer" style="padding-top:20px;">
+                <button type="reset" style="background-color: aliceblue; color:black;" class="btn btn-primary" data-bs-dismiss="modal" >Annuler</button>
+                <button type="button" style="margin-left: 5px;" class="btn btn-primary"  (click)="CreerAbsence()" >Valider</button>
+              </div></div></form>-->
+
+<form name="form" [formGroup]="createAbsForm">
+  <h1 mat-dialog-title style="width:100%;text-align: center;font-style:bold;text-decoration: underline;">Créer une absence</h1>     
+  <div mat-dialog-content>
+    <mat-form-field appearance="outline" style="width:100%;">
+      <mat-label>Type d'absence</mat-label>
+        <mat-select formControlName="typeAbs" placeholder="choisir un type">
+            <mat-option name="2" value="Sick Leave">Sick Leave</mat-option>
+            <mat-option name="3" value="Maladie">Maladie</mat-option>
+            <mat-option name="4" value="Conge_Annuel">Congé Annuel</mat-option>
+            <mat-option name="5" value="Maternite">Maternité</mat-option>
+            <mat-option name="6" value="Mariage">Mariage</mat-option>
+            <mat-option name="7" value="Deces">Décès</mat-option>
+            <mat-option name="8" value="Circoncision">Circoncision</mat-option>
+            <mat-option name="9" value="Naissance">Naissance</mat-option>
+            <mat-option name="10" value="Allaitement">Allaitement</mat-option>
+            <mat-option name="11" value="Formation">Formation</mat-option>
+            <mat-option name="12" value="Absence_RP">Absence RP</mat-option>
+            <mat-option name="13" value="Accident_de_travail">Accident de travail</mat-option>
+            <mat-option name="14" value="Recuperation_Heures_Supp">Récupération Heures Supp</mat-option>
+            <mat-option name="15" value="Autorisation_de_sortie">Autorisation de sortie</mat-option>
+            <mat-option name="16" value="Mission">Mission</mat-option>
+            <mat-option name="17" value="Mise_a_pied">Mise à pied</mat-option>
+            <mat-option name="18" value="OMRA">OMRA</mat-option>
+            <mat-option name="19" value="HAJ">HAJ</mat-option>
+            <mat-option name="20" value="Arret_Production">Arrêt Production</mat-option>
+            <mat-option name="21" value="Absence_Preavis">Absence Préavis</mat-option>
+            <mat-option name="22" value="Operation_Chirurgicale">Opération Chirurgicale</mat-option>
+            <mat-option name="23" value="Retard_Transport">Retard Transport</mat-option>          
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline"  style="width:30%">
+      <mat-label>Nom du collaborateur</mat-label>
+      <input formControlName="Nom" matInput>
+    </mat-form-field><br>
+    <mat-form-field appearance="outline" style="width:50%;margin-right:10px;">
+      <mat-label>Date de premier jour d'absence</mat-label>
+      <input formControlName="datePremierJ" matInput [matDatepicker]="picker1" (dateChange)="calculerNbJrs()">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline"  style="width:30%">
+      <mat-select formControlName="MatinorAprèsMidiPJ" placeholder="Matin ou Après-Midi" (selectionChange)="calculerNbJrs()">
+         <mat-option value="Matin">Matin</mat-option>
+         <mat-option value="Apres_Midi">Après-Midi</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline" style="width:50%;margin-right:10px;">
+      <mat-label>Date de dernier jour d'absence</mat-label>
+      <input formControlName="dateDernierJ" matInput [matDatepicker]="picker2" (dateChange)="calculerNbJrs()">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline"  style="width:30%">
+      <mat-select formControlName="MatinorAprèsMidiDJ" placeholder="Matin ou Après-Midi" (selectionChange)="calculerNbJrs()">
+         <mat-option value="Matin">Matin</mat-option>
+         <mat-option value="Apres_Midi">Après-Midi</mat-option>
+      </mat-select>
+    </mat-form-field><br>
+    <mat-form-field appearance="outline" style="width:50%;margin-right:10px;">
+      <mat-label>Date de Retour au travail</mat-label>
+      <input formControlName="dateRetour" matInput [matDatepicker]="picker3" readonly>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline"  style="width:30%">
+      <mat-label>Nombre de jours</mat-label>
+      <input formControlName="nombreJ" matInput readonly>
+    </mat-form-field><br>
+    <section class="example-section">
+      <mat-checkbox class="example-margin" [color]="task.color" style="margin-top:20px;margin-left:10px">Absence récurrente</mat-checkbox>
+    </section><br>
+    <mat-form-field appearance="outline" style="width:100%">
+      <mat-label>Commentaire</mat-label>
+      <textarea formControlName="commentaire" matInput></textarea>
+    </mat-form-field>
+    <div>
+      <label>Documentation</label>
+      <!-- <div style="margin-right:200px;">
+        <img src="assets/file.svg" width="100px" height="100px" style="margin-left:250px;" />
+      </div> -->
+      <div style="margin-left:150px;width:400px;">
+        <label class="form-label"></label>
+        <input hidden #fileUpload class="form-control"  type="file" formControlName="file" (change)="envoiFichier($event)"/>
+        <button mat-raised-button color="primary" (click)="fileUpload.click()">
+          <mat-icon>attach_file</mat-icon>
+          Primary
+        </button>  
+      </div>
+  </div>
+  </div>
+  <div mat-dialog-action [align]="'end'" style="margin-top:30px;">
+    <button type="button" mat-raised-button style="margin-right:5px;background-color:#0000ff;border:0px;color: white;" (click)="CreerAbsence()">{{actionBtn}}</button>
+     <button type="reset" mat-raised-button  mat-dialog-close style="color:black;background-color:#dcdcdc;border:Opx;border-color:gainsboro;">Annuler</button>
+  </div>       
+</form>
+

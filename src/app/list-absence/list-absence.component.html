@@ -1,0 +1,78 @@
+
+<div class="container">
+  <mat-form-field appearance="standard">
+    <mat-label>Filtre</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input >  
+  </mat-form-field>
+ 
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- Nomb Column -->
+      <ng-container matColumnDef="Nom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom du collaborateur </th>
+        <td mat-cell *matCellDef="let row"> {{row.Nom}} </td>
+      </ng-container>
+
+      <!-- TypeAbsence Column -->
+      <ng-container matColumnDef="typeAbs">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:100px;"> Type d'absence </th>
+        <td mat-cell *matCellDef="let row">{{row.raison}}</td>
+      </ng-container>
+  
+      <!-- DatePremierJ Column -->
+      <ng-container matColumnDef="datePremierJ">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:150px;"> Date de premier jour d'absence</th>
+        <td mat-cell *matCellDef="let row"> {{row.datedebut | date}} </td>
+      </ng-container>
+  
+      <!-- DateDernierJ Column -->
+      <ng-container matColumnDef="dateDernierJ">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:150px;"> Date de dernier jour d'absence</th>
+        <td mat-cell *matCellDef="let row"> {{row.datefin | date}} </td>
+      </ng-container>
+  
+      <!-- DateRetour Column -->
+      <ng-container matColumnDef="dateRetour">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:10%"> Retour au travail le </th>
+        <td mat-cell *matCellDef="let row"> {{row.dateRetour | date}} </td>
+      </ng-container>
+   <!-- NombreJ Column -->
+      <ng-container matColumnDef="nombreJ">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre de jours </th>
+        <td mat-cell *matCellDef="let row"> {{row.nomberJours}} </td>
+      </ng-container>
+     <!-- DateRetour Column -->
+     <ng-container matColumnDef="createdDate" >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:10%;">Créer le </th>
+      <td mat-cell *matCellDef="let row"> {{row.createdDate| date}} </td>
+    </ng-container>
+    <!-- commentaire Column -->
+    <ng-container matColumnDef="commentaire">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Commentaire  </th>
+      <td mat-cell *matCellDef="let row"> {{row.commentaire}} </td>
+    </ng-container>
+    <!--file Column --> 
+    <ng-container matColumnDef="file">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Fichier </th>
+      <td mat-cell *matCellDef="let row"> {{row.file}}</td>
+    </ng-container>
+ <!-- Action Column -->
+ <ng-container matColumnDef="Action">
+  <th mat-header-cell *matHeaderCellDef mat-sort-header><div style="width: 100px;"> Action </div></th>
+  <td mat-cell *matCellDef="let row">
+    <button mat-icon-button style="color:blue;" (click)="editAbsence(row)" ><mat-icon>edit</mat-icon></button>
+    <button mat-icon-button style="color:red; " (click)="deleteAbsence(row.id)"><mat-icon>delete</mat-icon></button>
+  </td>
+</ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Aucune données correspondant au filtre "{{input.value}}"</td>
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+</div>
