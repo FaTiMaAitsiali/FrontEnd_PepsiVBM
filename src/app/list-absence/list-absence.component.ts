@@ -58,11 +58,11 @@ export class ListAbsenceComponent implements OnInit {
     this.api.deleteAbsence(id)
     .subscribe({
       next:(res) => {
-        //alert("Absence Supprimée avec succès!");
+        alert("Absence Supprimée avec succès!");
         this.getAllAbsences();
       },
       error:() =>{
-        alert("Erreur lors de la suppression d'absence!");
+        //alert("Erreur lors de la suppression d'absence!");
       }
     })
   }  

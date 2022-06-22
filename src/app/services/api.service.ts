@@ -8,7 +8,9 @@ import { map} from 'rxjs/operators';
 })
 export class ApiService {
   server_url = "http://desktop-31psqv4:8081/Collaborateur"
+  
   constructor(private http: HttpClient) {}
+
   postAbsence(id: any, data : any){
      return this.http.post<any>(this.server_url+"/Absence/"+id,data);
   }
