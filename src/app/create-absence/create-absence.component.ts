@@ -34,8 +34,8 @@ export class CreateAbsenceComponent implements OnInit {
       commentaire:[''],
       file:[''],
       createdDate:new Date(),
-      MatinorApresMidiPJ:[''],
-      MatinorApresMidiDJ:['']
+      matinorApresMidiPJ:[''],
+      matinorApresMidiDJ:['']
     });
     if(this.editData){
       this.actionBtn="Enregistrer";
@@ -43,13 +43,12 @@ export class CreateAbsenceComponent implements OnInit {
       this.createAbsForm.controls['id'].setValue(this.editData.id);
       this.createAbsForm.controls['datePremierJ'].setValue(this.editData.datePremierJ);
       this.createAbsForm.controls['dateDernierJ'].setValue(this.editData.dateDernierJ);
-      this.createAbsForm.controls['MatinorApresMidiPJ'].setValue(this.editData.MatinorApresMidiPJ);
-      this.createAbsForm.controls['MatinorApresMidiDJ'].setValue(this.editData.MatinorApresMidiDJ);
+      this.createAbsForm.controls['matinorApresMidiPJ'].setValue(this.editData.matinorApresMidiPJ);
+      this.createAbsForm.controls['matinorApresMidiDJ'].setValue(this.editData.matinorApresMidiDJ);
       this.createAbsForm.controls['dateRetour'].setValue(this.editData.dateRetour);
       this.createAbsForm.controls['nombreJ'].setValue(this.editData.nombreJ);
       this.createAbsForm.controls['commentaire'].setValue(this.editData.commentaire);
       this.createAbsForm.controls['file'].setValue(this.editData.file);
-      
     }
   }
   envoiFichier (event: Event,) {
@@ -60,12 +59,10 @@ calculerNbJrs(): void {
   let dfin:any = this.createAbsForm.controls['dateDernierJ'].value;
   let difference = dfin.getTime() - ddebut.getTime();
   difference = difference / 3600000 //By hours
-  difference = difference / 24 //By days
-
-
+  difference = difference / 24 //By days 
   //Start here
-  let selectValue1 = this.createAbsForm.controls['MatinorApresMidiPJ'].value;
-  let selectValue2 = this.createAbsForm.controls['MatinorApresMidiDJ'].value;
+  let selectValue1 = this.createAbsForm.controls['matinorApresMidiPJ'].value;
+  let selectValue2 = this.createAbsForm.controls['matinorApresMidiDJ'].value;
   // console.log(selectValue1)
   if(selectValue1 === 'AM' ) 
   {
@@ -77,14 +74,10 @@ calculerNbJrs(): void {
   }
   }
   //Finish here
-
-
   this.createAbsForm.controls['nombreJ'].setValue(difference);
   var dretour = new Date((new Date(dfin.getTime())).valueOf());
   dretour.setDate(dretour.getDate() + 1);
   this.createAbsForm.controls['dateRetour'].setValue(dretour);
-
-
 }
   CreerAbsence(){
     if(!this.editData){

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog , MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CreateAbsenceComponent } from './create-absence/create-absence.component';
+
 
 @Component({
   selector: 'app-root',
@@ -9,14 +9,7 @@ import { CreateAbsenceComponent } from './create-absence/create-absence.componen
 })
 export class AppComponent {
   title = 'absence';
-  constructor(private dialog:MatDialog){}
+  constructor(){}
   
-  openDialog(){
-    this.dialog.open(CreateAbsenceComponent,{
-      width:'50%'
-    });
-  }
- 
-
-
+  
 }

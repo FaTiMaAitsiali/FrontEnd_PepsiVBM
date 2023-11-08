@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container" style="margin-top:40px;" >
   <mat-form-field appearance="standard">
     <mat-label>Filtre</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input >  
@@ -72,7 +72,12 @@
         <td class="mat-cell" colspan="4">Aucune données correspondant au filtre "{{input.value}}"</td>
       </tr>
     </table>
-  
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
   </div>
 </div>
+<div class="fixed-bottom">
+  <div class="example-button-container">
+    <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="openDialog()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div></div>

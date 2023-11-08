@@ -53,7 +53,7 @@ export class ListAbsenceComponent implements OnInit {
     }
   })
     }
-
+    
   deleteAbsence(id : number){
     this.api.deleteAbsence(id)
     .subscribe({
@@ -72,5 +72,12 @@ export class ListAbsenceComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-  }  
+  }   
+ 
+  openDialog(){
+    this.dialog.open(CreateAbsenceComponent,{
+      width:'50%'
+    });
+  }
+
 }

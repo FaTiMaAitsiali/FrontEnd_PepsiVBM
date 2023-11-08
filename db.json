@@ -37,6 +37,40 @@
       "id": 3
     }
   ],
+  "AvertissementList": [
+    {
+      "dateAvert": "2022-06-13T23:00:00.000Z",
+      "typeAvert": "L'insubordination",
+      "id": "7",
+      "file": "",
+      "commentaire": "insub",
+      "createdDate": "2022-06-29T12:50:38.571Z"
+    },
+    {
+      "dateAvert": "2022-06-06T23:00:00.000Z",
+      "typeAvert": "Le non-respect du règlement intérieur",
+      "id": "2",
+      "file": "",
+      "commentaire": "----",
+      "createdDate": "2022-06-24T22:36:19.789Z"
+    },
+    {
+      "dateAvert": "2022-06-28T23:00:00.000Z",
+      "typeAvert": "La négligence",
+      "id": "6",
+      "file": "",
+      "commentaire": "****",
+      "createdDate": "2022-06-29T12:50:56.796Z"
+    },
+    {
+      "dateAvert": "2022-05-31T23:00:00.000Z",
+      "typeAvert": "Les retards répétés",
+      "id": "9",
+      "file": "",
+      "commentaire": "Retard",
+      "createdDate": "2022-06-29T12:51:36.964Z"
+    }
+  ],
   "comments": [
     {
       "id": 1,
